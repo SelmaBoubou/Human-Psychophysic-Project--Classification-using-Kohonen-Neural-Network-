@@ -1,0 +1,331 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Human Psychophysics 
+\end_layout
+
+\begin_layout Author
+Submitted by Selma Boudissa
+\end_layout
+
+\begin_layout Date
+13/05/2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Introduction 
+\end_layout
+
+\begin_layout Standard
+For this project I was suppose to create a classification control-patient
+ using Kohonen network, to accomplish this task I code using Matlab.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Part
+Construction of the network
+\end_layout
+
+\begin_layout Standard
+The first step consist on the construction of the network using a toy example,
+ as you see in my code they are declared under the variables name 'Tr' and
+ 'Te' forllowing the guidelines given in the pdf file 
+\begin_inset Quotes eld
+\end_inset
+
+Part 1
+\begin_inset Quotes erd
+\end_inset
+
+ on my guithub repository.[1]
+\end_layout
+
+\begin_layout Standard
+For this part I created a function called 'kohonen_network.m'.
+\end_layout
+
+\begin_layout Section*
+Question 1: Training with the vectors
+\end_layout
+
+\begin_layout Standard
+The goal was to train the kohonen network with the vectors [ 1 1 0 0; 1
+ 0 0 0; 0 0 0 1; 0 0 1 1] in order to carry out the classification of this
+ one, after several test I fixed the learning rate at 0.72 (0.9 * 0.8) cause
+ this value allows a convergence.
+ 
+\end_layout
+
+\begin_layout Standard
+At the end the vector ( 1 1 0 0) and (1 0 0 0) should fall in class I while
+ the others should fall in class II.
+ The Figure 1 below show the correct result I obtain in my command window.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Tr.PNG
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Figure 1: Training the vectors 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 2: Test with the vectors
+\end_layout
+
+\begin_layout Standard
+Once I train the network is time for test using another set of vectors [
+ 0 0 0 0.9; 0 0 0.8 0.9; 0.7 0 0 0; 0.7 0.9 0 0] theoritically the result should
+ be the vectors (0 0 0 0.9) and (0 0 0.8 0.9) should fall in class II while
+ the rest in class I, as you can see I obtain the correct result in Figure
+ 2.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Te.PNG
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Figure 2: Test the vectors
+\end_layout
+
+\begin_layout Part
+Training data
+\end_layout
+
+\begin_layout Standard
+Now that I train and test my kohonen network with the toy examples vectors
+ I have to do it using the training dataset 'control.txt' and 'patient.txt'.
+ Basically I will use the same code for the first part and load my two text
+ files, you will found it on 'kohonen_network2.m'.
+\end_layout
+
+\begin_layout Part
+Personnal test set
+\end_layout
+
+\begin_layout Standard
+The last part of the project each student get an individual test dataset
+ called 'test_five.txt' to be able to classify each 4 subject as control
+ or patient.
+ For this I right a function called 'kohonen_network3' my function is able
+ to determine for each test if it's a control or a patient.
+ In the Figure 3 below of my command windows you will see the resulted output
+ of my personnal test dataset.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/3.PNG
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Figure 3: Classification patient-control on my individual dataset
+\end_layout
+
+\begin_layout Part
+Bonus
+\end_layout
+
+\begin_layout Section*
+Question:
+\end_layout
+
+\begin_layout Standard
+What are the principle differences if any between a bio-inspired algorithm
+ like the Kohonen SOM and two other well-known similar clustering algorithms
+ – the kmeans and k nearest neighbour algorithm? 
+\end_layout
+
+\begin_layout Section*
+Answer:
+\end_layout
+
+\begin_layout Standard
+There are several differences regarding what you are interested in.
+\end_layout
+
+\begin_layout Itemize
+One of the difference is that you need to specify in advance the number
+ of clusters you desire with th Kmeans algorithms compare to Kohonen SOM
+ where you don't need too.
+ 
+\end_layout
+
+\begin_layout Itemize
+SOM provide more robust learning and can be implemented in various ways
+\end_layout
+
+\begin_layout Itemize
+Kmeans is more sensitive to the noise in the dataset compared to SOM.
+\end_layout
+
+\begin_layout Part*
+References
+\end_layout
+
+\begin_layout Enumerate
+Guithub repository: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/SelmaBoubou/Human-Psychophysic-Project--Classification-using-K
+ohonen-Neural-Network-
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Virtual reality as sharp as the human eye can see: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.bbc.com/news/business-42963408
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
